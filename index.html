@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mars">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Optimizer Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar card">
+            <div class="sidebar-header">
+                <h2>🏗️ Properties</h2>
+                <p>Build rates & times</p>
+            </div>
+            
+            <div class="property-stack">
+                <div class="mini-card t-border">
+                    <div class="mini-header"><span>🎭 Theatre</span> <span class="badge">T</span></div>
+                    <small>Time: 5u | Profit: $1500/u</small>
+                </div>
+                <div class="mini-card p-border">
+                    <div class="mini-header"><span>🍺 Pub</span> <span class="badge">P</span></div>
+                    <small>Time: 4u | Profit: $1000/u</small>
+                </div>
+                <div class="mini-card c-border">
+                    <div class="mini-header"><span>🏢 Comm. Park</span> <span class="badge">C</span></div>
+                    <small>Time: 10u | Profit: $2000/u</small>
+                </div>
+            </div>
+
+            <div class="theme-section">
+                <button id="themeToggle" onclick="toggleTheme()" class="theme-btn">🌍 Switch to Earth Mode</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="glass-header card">
+                <h1>Max Profit Optimizer</h1>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Total Time Units (n)</label>
+                        <input type="number" id="timeInput" value="12">
+                    </div>
+                    <button onclick="calculateMaxProfit()" class="calc-btn">Analyze Profit</button>
+                </div>
+            </header>
+
+            <div class="results-grid">
+                <div class="result-card card main-result">
+                    <h3>Optimal Earnings</h3>
+                    <div id="profitDisplay" class="max-profit-display">$0</div>
+                    
+                    <div class="timeline-wrapper">
+                        <p>Construction Sequence Visualization:</p>
+                        <div id="timelineBar" class="timeline-container"></div>
+                    </div>
+                </div>
+
+                <div class="result-card card">
+                    <h3>Best Solution Breakdown</h3>
+                    <div id="solutionsList" class="solution-details">
+                        <p class="placeholder">Click analyze to see results...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
