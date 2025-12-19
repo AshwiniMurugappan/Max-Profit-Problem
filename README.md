@@ -4,6 +4,8 @@ A high-performance web dashboard designed to solve complex resource allocation a
 
 ---
 
+![Dashboard Screenshot](MaxProfitFrontend1.png)
+
 ## 📋 Table of Contents
 * [The Problem](#-the-problem)
 * [Key Features](#-key-features)
@@ -95,6 +97,7 @@ To add depth, I implemented a diagonal gradient beam that sweeps across the cont
 }
 ```
 
+![Dashboard Screenshot](MaxProfitFrontend2.png)
 ## 🚀 How to Run
 
 * Clone this repository.
