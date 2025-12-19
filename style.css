@@ -1,0 +1,182 @@
+/* THEME VARIABLES */
+:root[data-theme="mars"] {
+    --bg-img: url('https://static.scientificamerican.com/sciam/cache/file/C454F5A6-536E-4C9F-AA6AF354BB85A85B_source.jpg?w=1200');
+    --accent: #ffb700;
+    --card-bg: rgba(20, 10, 5, 0.6);
+}
+
+:root[data-theme="earth"] {
+    --bg-img: url('https://as2.ftcdn.net/v2/jpg/00/40/64/71/1000_F_40647159_gN2iSVOdKRk2AiW4CUBioDe4aFEVHS9o.jpg');
+    --accent: #00ffcc;
+    --card-bg: rgba(5, 15, 25, 0.6);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), var(--bg-img);
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    /* FIX: Allow global scrolling */
+    overflow-y: auto; 
+    min-height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    gap: 24px;
+    padding: 30px;
+    /* FIX: Use min-height so it grows, and stretch so sidebar stays tall */
+    min-height: 100vh; 
+    box-sizing: border-box;
+    align-items: stretch; 
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+    /* FIX: Sticky keeps sidebar visible while scrolling main content */
+    position: sticky;
+    top: 30px;
+    height: calc(100vh - 60px);
+}
+
+.mini-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border-left: 4px solid transparent;
+}
+
+.t-border { border-color: #ffb700; }
+.p-border { border-color: #58a6ff; }
+.c-border { border-color: #ff7b72; }
+
+.mini-header { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; }
+
+/* MAIN CONTENT */
+.main-content { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 25px; /* Adds space between Header and the Results Area */
+}
+
+/* FIX: Specific spacing between the two result cards */
+.results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+}
+
+.glass-header {
+    width: 100%;
+    box-sizing: border-box;
+    /* FIX: Prevents the shine animation from cutting off buttons/text */
+    overflow: visible !important; 
+    margin-bottom: 5px;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 183, 0, 0.4);
+    transform: translateY(-5px);
+}
+
+/* Shine Animation Container */
+.card, .mini-card {
+    position: relative;
+    /* Keep hidden for results/mini cards, but overridden for header above */
+    overflow: hidden; 
+}
+
+/* Shine Light Beam */
+.card::before, .mini-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        rgba(255, 255, 255, 0.15), 
+        transparent
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+}
+
+.card:hover::before, .mini-card:hover::before {
+    left: 150%;
+    transition: all 0.7s ease;
+}
+
+/* INPUTS & BUTTONS */
+.input-row { display: flex; align-items: flex-end; gap: 20px; margin-top: 15px; }
+
+input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 200px;
+}
+
+.calc-btn {
+    background: var(--accent);
+    color: black;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* RESULTS DISPLAY */
+.max-profit-display {
+    font-size: 5.5rem;
+    color: var(--accent);
+    font-weight: 900;
+    margin: 10px 0;
+}
+
+.timeline-container {
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.timeline-segment { height: 100%; transition: width 0.8s ease-in-out; }
+
+.theme-btn {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
